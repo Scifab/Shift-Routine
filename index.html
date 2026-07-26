@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#101420">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Rotation">
-<title>Rotation</title>
+<meta name="apple-mobile-web-app-title" content="Shift Routine">
+<title>Shift Routine</title>
 <style>
 :root{
   --ink:#101420;
@@ -42,7 +42,7 @@ body{
   color:var(--muted);
 }
 
-/* ---------- rotation strip: the signature ---------- */
+/* ---------- Shift Routine strip: the signature ---------- */
 .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
 .seg{
@@ -206,7 +206,7 @@ body{
 <div class="wrap">
 
   <div class="top">
-    <span class="eyebrow">Rotation</span>
+    <span class="eyebrow">Shift Routine</span>
     <span class="eyebrow" id="today"></span>
   </div>
 
@@ -270,7 +270,7 @@ const SEED = [
   {name:'Football',                phases:['off1','off2']}
 ];
 
-const K = 'rotation.v1';
+const K = 'Shift Routine.v1';
 let S, editing = false, draftPhases = ['day','night','off1','off2'];
 
 function iso(d){ return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); }
@@ -323,7 +323,7 @@ function render(){
   document.getElementById('today').textContent =
     new Date().toLocaleDateString(undefined,{weekday:'short', day:'numeric', month:'short'});
 
-  // rotation strip
+  // Shift Routine strip
   const idx = phaseIndexOn(t);
   document.getElementById('strip').innerHTML = PHASES.map((ph,i)=>
     `<div class="seg" data-i="${i}" data-live="${i===idx?1:0}"><span class="tick"></span>${ph.label}</div>`
@@ -457,7 +457,7 @@ document.getElementById('wipe').onclick = () => {
 // installable manifest, generated inline so the file stays self-contained
 (function(){
   const m = {
-    name:'Rotation', short_name:'Rotation', start_url:'.', display:'standalone',
+    name:'Shift Routine', short_name:'Shift Routine', start_url:'.', display:'standalone',
     background_color:'#101420', theme_color:'#101420',
     icons:[{src:'data:image/svg+xml;base64,'+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="42" fill="#101420"/><rect x="34" y="86" width="28" height="20" rx="4" fill="#f0a848"/><rect x="70" y="86" width="28" height="20" rx="4" fill="#7295dd"/><rect x="106" y="86" width="28" height="20" rx="4" fill="#63c7a0"/><rect x="142" y="86" width="16" height="20" rx="4" fill="#63c7a0"/></svg>'), sizes:'192x192', type:'image/svg+xml'}]
   };
